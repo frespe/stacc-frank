@@ -1,6 +1,14 @@
 import csv
+from hashlib import new
 import json
+import pandas as pd
 from collections import Counter
+
+# #forklar why
+# read_file = pd.read_excel ("iso_2digit_alpha_country_codes.xls")
+# read_file.to_csv ("2digit.csv", index = None, header=True)
+# df = pd.DataFrame(pd.read_csv("2digit.csv"))
+
 
 
 def open_file():
@@ -22,23 +30,26 @@ def pep_check(files):
         PEP = True
     return PEP
 
-def get_organisation(files):
-    #high risk countries
+def get_organisation():
+    #List of high-risk countries
     hrc = ["Albania Barbados","Burkina Faso","Cambodia","Cayman Islands","Democratic People's Republic of Korea (DPRK)","Haiti","Iran","Jamaica","Jordan","Mali","Malta","Morocco","Myanmar","Nicaragua","Pakistan","Panama","Philippines","Senegal","South Sudan","Syria","Turkey","Uganda","Yemen","Zimbabwe"]
     newHrc = []
-    for i in hrc:
-        newHrc.append(i.lower())
-    for org in files:
-        pepCompanies = []
-        org = org["id"].split("-")
-        for i in org:
-            if i in newHrc:
-                pepCompanies.append(i)
-    print(pepCompanies)
+    with open("2digit.csv", "r", encoding="utf-8") as data_file:
+        data = data_file.read()
+        data = data.split("\n")
 
-    #return pepCompanies
-
-get_organisation(data)
+        countryCode = {}
+        for i in data:
+            i = i.split(',')
+            if len(i)>1:
+                key = i[0].lower()
+                value = i[1]
+                countryCode[key] = value
+        for k,v in countryCode.items():
+            for i in hrc:
+                if i == v:
+                    newHrc.append(k)
+        return newHrc
 
 def get_sanctions(files):
     sanctions = False
