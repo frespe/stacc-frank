@@ -10,7 +10,6 @@ from collections import Counter
 # df = pd.DataFrame(pd.read_csv("2digit.csv"))
 
 
-
 def open_file():
     with open("pep_small.csv", "r", encoding="utf-8") as data_file:
         data = csv.DictReader(data_file)
@@ -21,18 +20,25 @@ def open_file():
 data = open_file()
 
 
-def pep_check(files):
-    politicalParties = []
+def pep_check(persons):
+    data = open_file()
     PEP = False
-
-    if files["dataset"] not in politicalParties:
-        politicalParties.append(files["dataset"])
+    politicalParties = []
+    for i in data:
+        if i["dataset"] not in politicalParties:
+            politicalParties.append(i)
+    # if persons["dataset"] not in politicalParties:
+    #     politicalParties.append(persons["dataset"])
+    #     PEP = True
+    if persons["dataset"] in politicalParties or persons["dataset"]!="":
         PEP = True
     return PEP
 
+
 def get_organisation():
-    #List of high-risk countries
-    hrc = ["Albania Barbados","Burkina Faso","Cambodia","Cayman Islands","Democratic People's Republic of Korea (DPRK)","Haiti","Iran","Jamaica","Jordan","Mali","Malta","Morocco","Myanmar","Nicaragua","Pakistan","Panama","Philippines","Senegal","South Sudan","Syria","Turkey","Uganda","Yemen","Zimbabwe"]
+    # List of high-risk countries
+    hrc = ["Albania Barbados", "Burkina Faso", "Cambodia", "Cayman Islands",
+           "Democratic People's Republic of Korea (DPRK)", "Haiti", "Iran", "Jamaica", "Jordan", "Mali", "Malta", "Morocco", "Myanmar", "Nicaragua", "Pakistan", "Panama", "Philippines", "Senegal", "South Sudan", "Syria", "Turkey", "Uganda", "Yemen", "Zimbabwe"]
     newHrc = []
     with open("2digit.csv", "r", encoding="utf-8") as data_file:
         data = data_file.read()
@@ -41,15 +47,16 @@ def get_organisation():
         countryCode = {}
         for i in data:
             i = i.split(',')
-            if len(i)>1:
+            if len(i) > 1:
                 key = i[0].lower()
                 value = i[1]
                 countryCode[key] = value
-        for k,v in countryCode.items():
+        for k, v in countryCode.items():
             for i in hrc:
                 if i == v:
                     newHrc.append(k)
         return newHrc
+
 
 def get_sanctions(files):
     sanctions = False
@@ -57,6 +64,7 @@ def get_sanctions(files):
         sanctions = True
 
     return sanctions
+
 
 def check_person_for_sanctions(data):
     inp = input("Enter name to check if there are any sanctions")
@@ -69,18 +77,27 @@ def check_person_for_sanctions(data):
                 print(
                     [f'{persons["name"]} has the following sanctions: {persons["sanctions"]}, please further investigate'])
 
-#check_person_for_sanctions(data)
+# check_person_for_sanctions(data)
+
 
 def check_person_for_PEP(data):
     inp = input("Enter name to check if PEP")
     for persons in data:
         if inp == persons["name"]:
+            highRisk = get_organisation()
             checkPEP = pep_check(persons)
             if not checkPEP:
                 print([f'{persons["name"]} Is not a PEP'])
-            else:
+            elif checkPEP and persons["countries"] in highRisk:
+                 print([f'{persons["name"]} is PEP: {persons["dataset"]}, and a part of a high risk country:{persons["countries"]}. please further investigate'])
+            elif not checkPEP and persons["countries"] in highRisk:
+                 print([f'{persons["name"]} is not a PEP, but is a part of a high risk country:{persons["countries"]}. please further investigate'])
+            elif checkPEP:
                 print([f'{persons["name"]} is PEP: {persons["dataset"]}, please further investigate'])
-#check_person_for_PEP(data)
+
+
+check_person_for_PEP(data)
+
 
 def KYC():
     return None
