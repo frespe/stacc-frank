@@ -2,7 +2,7 @@
 
 ## Oppgavebeskrivelse
 Her kan beskrive hvilke oppgave(r) du har valgt å løse.
-> Bekriv prosjektet ditt kort.
+> Oppgaven går ut på at man foretar en enkel sjekk av dei personane som er vedlagt 
 
 ## Hvordan kjøre prosjektet
 For eksempel ***yarn start***
