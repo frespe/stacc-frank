@@ -1,5 +1,5 @@
 "id","schema","name","aliases","birth_date","countries","addresses","identifiers","sanctions","phones","emails","dataset","last_seen","first_seen"
-"NK-23wLbkLretoJxTci3VMZwE","Person","Oleg SLIZHEVSKIY","","","by","","","ja","","","","2021-07-26 11:55:45","2021-10-07 03:02:59"
+"NK-23wLbkLretoJxTci3VMZwE","Person","Oleg SLIZHEVSKIY","","","by","","","corruption 2020","","","","2021-07-26 11:55:45","2021-10-07 03:02:59"
 "NK-2JsQ3Xh7VjadTbHQtfwcbp","Person","Thomas BLOMQVIST","Blomqvist Thomas;Thomas Blomqvist","1965-01-15","fi","","Q5579704","","+35894323008","thomas.blomqvist@eduskunta.fi","CIA World Leaders;Every Politician","2021-07-26 11:55:45","2021-10-07 03:02:59"
 "NK-2Mgn5wh5qDh2YhDsdFvDjH","Person","Godfridah Nsenduluka SUMAILI","Godfridah Nsenduluka Sumaili;Godfridah Sumaili","1957-05-26","zm","","Q27063686","","","","CIA World Leaders;Every Politician","2021-07-26 11:55:45","2021-10-07 03:02:59"
 "NK-2NgUmuLQULe2omFqZX2dta","Person","Karin KARLSBRO","Karin;Karin Karlsbro","1970-09-23","se","","Q4958080","","","","Every Politician;Members of the European Parliament","2021-07-26 11:55:45","2021-10-07 03:02:59"
@@ -11,4 +11,6 @@
 "evpo-64239edf-8e06-4d2d-acc0-33d96bc79774","Person","Joseph Biden, Jr.","Baiden Džo;Biden, Joseph;Co Bayden;Džo Baidens;Iosephus Biden;Joe Biden;Joseph Biden;Jow Bayden;Τζο Μπάιντεν;Џо Бајден;Джо Байден;Джо Байдън;Джозеф Байден;Джозеф Рабінет Байдэн;Жо Байден;Ҷозеф Байден;Ջոզեֆ Բայդեն;ג'ו ביידן;דזשאו ביידען;جو بائیڈن;جو بايدن;جو بایدن;جۆزێف بایدن;چو بايدن;जो बाइडेन;जोसेफ बायडेन;জো বাইডেন;ஜோ பைடன்;ജോ ബിഡൻ;โจ ไบเดิน;ჯო ბაიდენი;ジョー・バイデン;乔·拜登;祖拜登;조 바이든","1942-11-20","us","","Q6279","","","","Every Politician","2021-07-26 11:55:45","2021-10-07 03:02:59"
 "us-cia-iran-hasan-fereidun-ruhani-hojjat-ol-eslam-pres","Person","Hasan Fereidun RUHANI, Hojjat ol-Eslam","","","ir","","","","","","CIA World Leaders","2021-07-26 11:55:45","2021-10-07 03:02:59"
 "us-cia-iran-ali-akbar-salehi-hojjat-ol-eslam-vice-pres-head-atomic-energy-organization-of-iran","Person","Ali Akbar SALEHI, Hojjat ol-Eslam","","","ir","","","","","","CIA World Leaders","2021-07-26 11:55:45","2021-10-07 03:02:59"
+"us-cia-senegal-abdoulaye-diouf-sarr-min-of-health-social-affairs","Person","Abdoulaye Diouf SARR","","","sn","","","","","","CIA World Leaders","2021-07-26 11:55:45","2021-10-07 03:02:59"
+
 
